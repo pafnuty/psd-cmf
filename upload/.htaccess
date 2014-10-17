@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	#RewriteBase /path/to/app
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^login/([^.]+)/?$ index.php?do=login&name=$1 [L]
+	RewriteRule ^login/([^.]+)/([0-9]+)(/?).html$ index.php?do=login&name=$1&page=$2 [L]
+	RewriteRule ^([^.]+)/?$ index.php?do=layout&name=$1 [L]
+	RewriteRule ^([^.]+)/([0-9]+)(/?).html$ index.php?do=layout&name=$1&page=$2 [L]
+</IfModule>
